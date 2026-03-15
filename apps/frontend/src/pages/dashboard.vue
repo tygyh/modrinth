@@ -20,7 +20,7 @@
 						link: '/dashboard/affiliate-links',
 						label: formatMessage(commonMessages.affiliateLinksButton),
 						icon: AffiliateIcon,
-						shown: !!isAffiliate,
+						shown: isAffiliate,
 					},
 					{ link: '/dashboard/revenue', label: 'Revenue', icon: CurrencyIcon, matchNested: true },
 				]"
@@ -51,7 +51,7 @@ import NavStack from '~/components/ui/NavStack.vue'
 const auth = (await useAuth()) as Ref<{ user: User | null }>
 
 const isAffiliate = computed(() => {
-	return auth.value.user && auth.value.user.badges & UserBadge.AFFILIATE
+	return !!(auth.value.user && auth.value.user.badges & UserBadge.AFFILIATE)
 })
 
 const { formatMessage } = useVIntl()
