@@ -51,7 +51,7 @@ import NavStack from '~/components/ui/NavStack.vue'
 const auth = (await useAuth()) as Ref<{ user: User | null }>
 
 const isAffiliate = computed(() => {
-	return !!(auth.value.user && auth.value.user.badges & UserBadge.AFFILIATE)
+	return !!auth.value.user && (auth.value.user.badges & UserBadge.AFFILIATE) !== 0
 })
 
 const { formatMessage } = useVIntl()

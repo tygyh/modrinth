@@ -1086,7 +1086,7 @@ const userMenuOptions = computed(() => {
 		{
 			id: 'affiliate-links',
 			link: '/dashboard/affiliate-links',
-			shown: user.badges & UserBadge.AFFILIATE,
+			shown: (user.badges & UserBadge.AFFILIATE) !== 0,
 		},
 		{
 			id: 'revenue',

@@ -838,7 +838,7 @@ async function copyPermalink() {
 	await navigator.clipboard.writeText(`${config.public.siteUrl}/user/${user.value.id}`)
 }
 
-const isAffiliate = computed(() => user.value.badges & UserBadge.AFFILIATE)
+const isAffiliate = computed(() => (user.value.badges & UserBadge.AFFILIATE) !== 0)
 const isAdminViewing = computed(() => isAdmin(auth.value.user))
 
 async function toggleAffiliate(id) {
